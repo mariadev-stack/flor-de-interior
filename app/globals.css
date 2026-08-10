@@ -1,26 +1,36 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+
+.coming-soon {
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+  background: #171717;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.background {
+  position: absolute;
+  inset: 0;
+  background: url("/background.svg") center / cover no-repeat;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.content {
+  position: relative;
+  z-index: 1;
+
+  min-height: 100svh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.coming-soon-logo {
+  width: min(700px, 75vw);
+  height: auto;
+}
+
+.flower {
+  width: 150px;
 }

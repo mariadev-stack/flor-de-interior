@@ -28,10 +28,7 @@
 .background {
   position: absolute;
   inset: 0;
-  background-image: url("/background-image.jpg");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  z-index: 0;
 }
 
 .content {

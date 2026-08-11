@@ -1,11 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
+import GridDistortion from "./components/GridDistortion";
 
 export default function Home() {
   return (
     <section className="coming-soon">
-          <div className="background">
-          </div>
+          <GridDistortion
+            imageSrc="/background-image.jpg"
+            grid={106}
+            mouse={0.1}
+            strength={0.15}
+            relaxation={0.9}
+            className="background"
+          />
           <div className="content">
             <div className="flor-de-text">
               <p className="flor">flor</p>

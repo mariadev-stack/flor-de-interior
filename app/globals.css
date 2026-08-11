@@ -1,5 +1,22 @@
 @import "tailwindcss";
-
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/fonts/JetBrainsMono-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Alte Haas Grotesk";
+  src: url("/fonts/AlteHaasGrotesk-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Alte Haas Grotesk";
+  src: url("/fonts/AlteHaasGrotesk-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
 
 .coming-soon {
   position: relative;
@@ -11,7 +28,10 @@
 .background {
   position: absolute;
   inset: 0;
-  background: url("/background.svg") center / cover no-repeat;
+  background-image: url("/background-image.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .content {
@@ -22,15 +42,69 @@
 
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  /*align-items: center;*/
+  /*justify-content: center;*/
 }
 
 .coming-soon-logo {
   width: min(700px, 75vw);
   height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
 }
 
-.flower {
-  width: 150px;
+.flor-de-text{
+  font-family: "JetBrains Mono", monospace;
+  font-size: 1rem;
+  color: #ffffff;
+  display:flex;
+  gap: 70rem;
+  margin-top: 2rem;
+  margin-left: 2rem;
+}
+
+.interior-text{
+  font-family: "JetBrains Mono", monospace;
+  font-size: 1rem;
+  color: #ffffff;
+  text-align: right;
+  margin-right: 2rem;
+}
+
+.links{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+  margin-left: 2rem;
+  
+}
+
+.instagram-link{
+  font-family: "Alte Haas Grotesk", sans-serif;
+  font-size: 1rem;
+  color: #ffffff;
+  text-align: right;
+  margin-right: 2rem;
+  margin-bottom: 2rem;
+}
+
+.website-link{
+  font-family: "Alte Haas Grotesk", sans-serif;
+  font-size: 1rem;
+  color: #ffffff;
+  text-align: right;
+  margin-right: 2rem;
+  margin-bottom: 2rem;
+}
+
+.location{
+  font-family: "Alte Haas Grotesk", sans-serif;
+  font-size: 1rem;
+  color: #ffffff;
+  text-align: right;
+  margin-right: 2rem;
+  margin-bottom: 2rem;
 }

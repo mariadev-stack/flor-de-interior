@@ -53,7 +53,7 @@
 
   opacity: 0;
   filter: blur(20px);
-  transition: opacity 1.2s ease, filter 1.2s ease;
+  transition: opacity 2.1s ease, filter 1.2s ease;
 }
 
 .coming-soon-logo.is-loaded {

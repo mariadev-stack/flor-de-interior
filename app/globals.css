@@ -110,6 +110,11 @@
   margin-bottom: 2rem;
 }
 
+/*.instagram-link-hover:hover .instagram-link {
+  text-decoration: underline;
+}
+*/
+
 .website-link{
   font-family: "Alte Haas Grotesk", sans-serif;
   font-size: 1rem;

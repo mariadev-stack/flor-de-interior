@@ -90,11 +90,23 @@ export default function Home() {
               onLoad={() => setLogoLoaded(true)}
             />
             <div className="links">
-              <a href="https://www.instagram.com/flordeinterior____/" target="_blank">
-                <BlurText text="@flordeinterior____" className="instagram-link" />
+              <a href="https://www.instagram.com/flordeinterior____/" target="_blank" className="instagram-link-hover">
+                <BlurText
+                  text="@flordeinterior____"
+                  className="instagram-link"
+                  animationTo={[{ filter: "blur(0px)", opacity: 1, y: 0 }]}
+                />
               </a>
-              <BlurText text="MED" className="location" />
-              <BlurText text="flordeinterior.co" className="website-link" />
+              <BlurText
+                text="MED"
+                className="location"
+                animationTo={[{ filter: "blur(0px)", opacity: 1, y: 0 }]}
+              />
+              <BlurText
+                text="flordeinterior.co"
+                className="website-link"
+                animationTo={[{ filter: "blur(0px)", opacity: 1, y: 0 }]}
+              />
             </div>
           </div>
         </section>

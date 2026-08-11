@@ -61,6 +61,19 @@
   filter: blur(0);
 }
 
+.entrance-letter {
+  display: inline-block;
+  opacity: 0;
+  transform: translateX(-80px);
+  transition: opacity 0.7s cubic-bezier(0.65, 0, 0.35, 1),
+    transform 0.7s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.entrance-letter.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 .flor-de-text{
   font-family: "JetBrains Mono", monospace;
   font-size: 1rem;

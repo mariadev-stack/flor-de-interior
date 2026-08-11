@@ -1,15 +1,63 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import GridDistortion from "./components/GridDistortion";
+import BlurText from "./components/BlurText";
+
+const ENTRANCE_MAX_DELAY = 0.9;
+
+function AnimatedLetters({
+  text,
+  ready,
+  delays,
+}: {
+  text: string;
+  ready: boolean;
+  delays: number[];
+}) {
+  return (
+    <>
+      {Array.from(text).map((char, i) => (
+        <span
+          key={i}
+          className={`entrance-letter ${ready ? "is-visible" : ""}`}
+          style={{ transitionDelay: `${delays[i] ?? 0}s` }}
+        >
+          {char === " " ? " " : char}
+        </span>
+      ))}
+    </>
+  );
+}
 
 export default function Home() {
   const [logoLoaded, setLogoLoaded] = useState(false);
 
   const logoRef = useCallback((img: HTMLImageElement | null) => {
     if (img?.complete) setLogoLoaded(true);
+  }, []);
+
+  const florText = "flor";
+  const deText = "de";
+  const interiorText = "interior";
+
+  const [entranceReady, setEntranceReady] = useState(false);
+  const [florDelays, setFlorDelays] = useState<number[]>([]);
+  const [deDelays, setDeDelays] = useState<number[]>([]);
+  const [interiorDelays, setInteriorDelays] = useState<number[]>([]);
+
+  useEffect(() => {
+    const randomDelays = (length: number) =>
+      Array.from({ length }, () => Math.random() * ENTRANCE_MAX_DELAY);
+
+    setFlorDelays(randomDelays(florText.length));
+    setDeDelays(randomDelays(deText.length));
+    setInteriorDelays(randomDelays(interiorText.length));
+
+    const raf = requestAnimationFrame(() => setEntranceReady(true));
+    return () => cancelAnimationFrame(raf);
   }, []);
 
   return (
@@ -24,10 +72,16 @@ export default function Home() {
           />
           <div className="content">
             <div className="flor-de-text">
-              <p className="flor">flor</p>
-              <p className="de">de</p>
+              <p className="flor">
+                <AnimatedLetters text={florText} ready={entranceReady} delays={florDelays} />
+              </p>
+              <p className="de">
+                <AnimatedLetters text={deText} ready={entranceReady} delays={deDelays} />
+              </p>
             </div>
-            <p className="interior-text">interior</p>
+            <p className="interior-text">
+              <AnimatedLetters text={interiorText} ready={entranceReady} delays={interiorDelays} />
+            </p>
             <img
               ref={logoRef}
               src="/coming-soon.svg"
@@ -36,11 +90,11 @@ export default function Home() {
               onLoad={() => setLogoLoaded(true)}
             />
             <div className="links">
-              <a href="https://www.instagram.com/flordeinterior____/" target="_blank" className="instagram-link">
-                @flordeinterior____
+              <a href="https://www.instagram.com/flordeinterior____/" target="_blank">
+                <BlurText text="@flordeinterior____" className="instagram-link" />
               </a>
-              <p className="location">MED</p>
-              <p className="website-link">flordeinterior.co</p>
+              <BlurText text="MED" className="location" />
+              <BlurText text="flordeinterior.co" className="website-link" />
             </div>
           </div>
         </section>
